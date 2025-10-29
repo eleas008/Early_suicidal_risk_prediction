@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f7f9fc, #e4ebf5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 2em;
+    }
+
+    .result {
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 1.2em;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    /* Risk color coding */
+    .low { background: #d4edda; color: #155724; }
+    .moderate { background: #fff3cd; color: #856404; }
+    .high { background: #f8d7da; color: #721c24; }
+
+    .btn-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-back:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Prediction Result</h2>
+    <div class="result {{ risk|lower }}">
+      Predicted suicidal probability: <strong>{{ percent }}%</strong><br>
+      Risk level: <strong>{{ risk }}</strong>
+    </div>
+    <a class="btn-back" href="/">Back</a>
+  </div>
+</body>
+</html>

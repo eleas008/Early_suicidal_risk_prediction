@@ -1,1 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Suicide Risk Prediction</title>
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f7f9fc, #e4ebf5);
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 1.8em;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: all 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 0;
+      background: #007bff;
+      border: none;
+      color: white;
+      font-size: 1.1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Optional responsive tweaks */
+    @media (max-width: 500px) {
+      .container { padding: 20px; }
+      h2 { font-size: 1.5em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Suicidal Risk Prediction</h2>
+    <form method="post" action="/predict">
+      <div class="field">
+        <label>Age</label>
+        <input name="Age" type="number" value="23" required>
+      </div>
+
+      <div class="field">
+        <label>Gender</label>
+        <select name="Gender">
+          <option>Female</option><option>Male</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Stress Level</label>
+        <select name="Stress Level">
+          <option>Low</option><option>Moderate</option><option>High</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Academic Performance</label>
+        <select name="Academic Performance">
+          <option>Good</option><option>Average</option><option>Poor</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Health Condition</label>
+        <select name="Health Condition">
+          <option>Normal</option><option>Fair</option><option>Abnormal</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Relationship Condition</label>
+        <select name="Relationship Condition">
+          <option>Single</option><option>In a relationship</option><option>Breakup</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Family Problem</label>
+        <select name="Family Problem">
+          <option>None</option><option>Financial</option><option>Parental conflict</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Depression Level</label>
+        <select name="Depression Level">
+          <option>Never</option><option>Sometimes</option><option>Often</option><option>Always</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Anxiety Level</label>
+        <select name="Anxiety Level">
+          <option>Never</option><option>Sometimes</option><option>Often</option><option>Always</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Mental Support</label>
+        <select name="Mental Support">
+          <option>Family</option><option>Friends</option><option>Loneliness</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Self Harm Story</label>
+        <select name="Self Harm Story">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+
+      <button class="btn" type="submit">Predict</button>
+    </form>
+  </div>
+</body>
+</html>
